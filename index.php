@@ -15,12 +15,12 @@
 
   //Text string and definitions
 
-  $URL_BASE="/imagens";
-  //$URL_BASE="<Path in the website's URL>";
-  $DIR_BASE="/home/uroybek/www/imagens";
-  //$DIR_BASE="<Full path to the folder in the file system>";
-  $text=array("Imagens", "Gerir as Imagens", "Carregar Imagens", "Procurar", "Imagens na pasta: ", "Zona de upload", "Entrar", "Voltar");
-  //$text=array("Images", "Manager Images", "Load Images", "Search", "Images on folder: ", "Upload zone", "Go", "Go back");
+  //$URL_BASE="/imagens";
+  $URL_BASE="<Path in the website's URL>";
+  //$DIR_BASE="/home/uroybek/www/imagens";
+  $DIR_BASE="<Full path to the folder in the file system>";
+  //$text=array("Imagens", "Gerir as Imagens", "Carregar Imagens", "Procurar", "Imagens na pasta: ", "Zona de upload", "Entrar", "Voltar");
+  $text=array("Images", "Manager Images", "Load Images", "Search", "Images on folder: ", "Upload zone", "Go", "Go back");
   
     
   $st=new Strings();
