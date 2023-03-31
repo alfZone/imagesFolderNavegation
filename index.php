@@ -3,7 +3,7 @@
 /**
  * The objective of the repository is to provide HTML, PHP, and JavaScript code to manage a folder where images are stored..
  * @author António Lira Fernandes
- * @version 1.1
+ * @version 1.2
  * @updated 301-03-2023 21:50:00
  https://github.com/alfZone/imagesFolderNavegation
  */
@@ -17,6 +17,8 @@
 
   //$URL_BASE="/imagens";
   $URL_BASE="<Path in the website's URL>";
+  // to see complete path use getcwd
+  //echo getcwd();
   //$DIR_BASE="/home/uroybek/www/imagens";
   $DIR_BASE="<Full path to the folder in the file system>";
   //$text=array("Imagens", "Gerir as Imagens", "Carregar Imagens", "Procurar", "Imagens na pasta: ", "Zona de upload", "Entrar", "Voltar");
