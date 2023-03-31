@@ -3,7 +3,7 @@
 /**
  * The objective of the repository is to provide HTML, PHP, and JavaScript code to manage a folder where images are stored..
  * @author António Lira Fernandes
- * @version 1.2
+ * @version 2.0
  * @updated 301-03-2023 21:50:00
  https://github.com/alfZone/imagesFolderNavegation
  */
@@ -15,11 +15,11 @@
 
   //Text string and definitions
 
-  //$URL_BASE="/imagens";
-  $URL_BASE="<Path in the website's URL>";
+  //$URL_BASE="/images";
+  $URL_BASE="<Path in the website's URL>"; 
   // to see complete path use getcwd
   //echo getcwd();
-  //$DIR_BASE="/home/uroybek/www/imagens";
+  //$DIR_BASE="/home/esmonser/justicaepazviana.pt/images";
   $DIR_BASE="<Full path to the folder in the file system>";
   //$text=array("Imagens", "Gerir as Imagens", "Carregar Imagens", "Procurar", "Imagens na pasta: ", "Zona de upload", "Entrar", "Voltar");
   $text=array("Images", "Manager Images", "Load Images", "Search", "Images on folder: ", "Upload zone", "Go", "Go back");
@@ -32,7 +32,7 @@
   $actual_link=str_replace("//", "/", $actual_link);
   //echo $actual_link;
 
-  //echo getcwd();
+ 
   //$dir = '/'; //insira aqui o caminho para a pasta que deseja visualizar
   //$dirbase="/home/uroybek/www/imagens";
   //$urlbase="/imagens";
@@ -101,8 +101,16 @@
                 <div class="col-sm-3 p-3 bg-dark">
                   <div class="card" style="width:250px">
                     <div class="card-body">
-                      <h4><b><?=$text[7]?></b></h4> 
-                      <a href="/public<?=$URL_BASE."/".$aux?>" class="btn btn-primary"><?=$text[6]?></a>
+                      <h4><b><?=$text[7]?></b></h4>
+                    </div>
+                    <div class="card-footer">
+                      <a href="/public<?=$URL_BASE."/".$aux?>" class="btn btn-primary">
+                        <?//=$text[6]?>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                        <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                      </svg>
+                    </a>
                     </div>
                   </div>
                 </div>
@@ -118,13 +126,21 @@
                     <!--img class="card-img-top" src="<?=$file?>" alt="<?=$file?>" style="width:100%"-->
                     <div class="card-body">
                       <h4><b><?=$file?></b></h4> 
-                      <a href="/public<?=$url."/".$file?>" class="btn btn-primary"><?=$text[6]?></a>
+                    </div>
+                    <div class="card-footer">
+                      <a href="/public<?=$url."/".$file?>" class="btn btn-primary">
+                        <?//=$text[6]?>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-folder2-open" viewBox="0 0 16 16">
+                          <path d="M1 3.5A1.5 1.5 0 0 1 2.5 2h2.764c.958 0 1.76.56 2.311 1.184C7.985 3.648 8.48 4 9 4h4.5A1.5 1.5 0 0 1 15 5.5v.64c.57.265.94.876.856 1.546l-.64 5.124A2.5 2.5 0 0 1 12.733 15H3.266a2.5 2.5 0 0 1-2.481-2.19l-.64-5.124A1.5 1.5 0 0 1 1 6.14V3.5zM2 6h12v-.5a.5.5 0 0 0-.5-.5H9c-.964 0-1.71-.629-2.174-1.154C6.374 3.334 5.82 3 5.264 3H2.5a.5.5 0 0 0-.5.5V6zm-.367 1a.5.5 0 0 0-.496.562l.64 5.124A1.5 1.5 0 0 0 3.266 14h9.468a1.5 1.5 0 0 0 1.489-1.314l.64-5.124A.5.5 0 0 0 14.367 7H1.633z"/>
+                        </svg>
+                      </a>
                     </div>
                   </div>
                 </div>
                   <?php
             }
             else {
+              // Images
                 $ext = pathinfo($file, PATHINFO_EXTENSION);
                 if(in_array($ext, array('jpg', 'jpeg', 'png', 'gif'))) {
                     //echo '<p>Imagem: '.$file.'</p>';
@@ -132,9 +148,18 @@
                   ?>
                 <div class="col-sm-3 p-3">
                   <div class="card" style="width:250px">
-                    <img class="card-img-top" src="<?=$url."/".$file?>" alt="<?=$file?>" style="width:100%">
+                    <img class="card-img-top" src="<?=$url."/".$file?>" alt="<?=$file?>" style="width:100%" id="<?=$file?>">
                     <div class="card-body">
                       <h4><b><?=$file?></b></h4> 
+                    </div>
+                    <div class="card-footer">
+                      <button id="copy-button"  class="btn btn-primary" onclick="copyURL('<?=$file?>')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                          <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                          <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                        </svg>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -169,7 +194,26 @@
         // Ocorreu um erro ao carregar o arquivo!
       }
     };
+    
+       
+    function copyURL(id) {
+      // Seleciona a URL da imagem
+      var photoUrl = document.getElementById(id).src;
+      // Cria um elemento de texto temporário para armazenar a URL da imagem
+      var tempInput = document.createElement("input");
+      tempInput.value = photoUrl;
+      // Adiciona o elemento de texto temporário ao DOM
+      document.body.appendChild(tempInput);
+      // Seleciona o texto no elemento de texto temporário
+      tempInput.select();
+      // Copia o texto selecionado para a área de transferência
+      document.execCommand("copy");
+      // Remove o elemento de texto temporário do DOM
+      document.body.removeChild(tempInput);
+      // Exibe uma mensagem informando que a URL da foto foi copiada com sucesso
+      //alert("URL da foto copiada com sucesso!");
+    }
+        
   </script>
 </body>
 </html> 
-
