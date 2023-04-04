@@ -3,7 +3,7 @@
 /**
  * The objective of the repository is to provide HTML, PHP, and JavaScript code to manage a folder where images are stored..
  * @author António Lira Fernandes
- * @version 2.0
+ * @version 2.1
  * @updated 301-03-2023 21:50:00
  https://github.com/alfZone/imagesFolderNavegation
  */
@@ -142,7 +142,7 @@
             else {
               // Images
                 $ext = pathinfo($file, PATHINFO_EXTENSION);
-                if(in_array($ext, array('jpg', 'jpeg', 'png', 'gif'))) {
+                if(in_array($ext, array('jpg', 'jpeg', 'png', 'gif', 'wepb'))) {
                     //echo '<p>Imagem: '.$file.'</p>';
                     //echo '<img src="'.$file.'" alt="'.$file.'" width="100%" height="100%">';
                   ?>
