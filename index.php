@@ -5,7 +5,7 @@
  * @author António Lira Fernandes
  * @version 2.1
  * @updated 301-03-2023 21:50:00
- https://github.com/alfZone/imagesFolderNavegation
+ * https://github.com/alfZone/imagesFolderNavegation
  */
 
 //require __DIR__ . '/../config.php';
