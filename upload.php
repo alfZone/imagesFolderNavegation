@@ -5,7 +5,7 @@
  * @author António Lira Fernandes
  * @version 1.1
  * @updated 301-03-2023 21:50:00
- https://github.com/alfZone/imagesFolderNavegation
+ * https://github.com/alfZone/imagesFolderNavegation
  */
 
 if (!empty($_FILES)) {
