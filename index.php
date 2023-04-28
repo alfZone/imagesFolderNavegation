@@ -3,7 +3,7 @@
 /**
  * The objective of the repository is to provide HTML, PHP, and JavaScript code to manage a folder where images are stored..
  * @author António Lira Fernandes
- * @version 2.1
+ * @version 3.1
  * @updated 301-03-2023 21:50:00
  * https://github.com/alfZone/imagesFolderNavegation
  */
@@ -69,8 +69,8 @@
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="text" placeholder="Search">
-        <button class="btn btn-primary" type="button"><?=$text[3]?></button>
+        <input class="form-control me-2" id="search" type="text" placeholder="Search" onkeyup="FilterImage()" >
+        <button class="btn btn-primary" type="button" onclick="FilterImage()"><?=$text[3]?></button>
       </form>
     </div>
   </div>
@@ -78,11 +78,11 @@
 
 <div class="container mt-3">
   <h2><?=$text[4]?> <?=$url?></h2>
-  <div class="row">
+  <div class="row" id="listFiles>
     <div class="col-sm-3 p-3 bg-dark">
       <div class="card" style="width:250px">
         <div class="card-body">
-          <h3><?=$text[5]?></h3> 
+          <h4><?=$text[5]?></h4> 
           <form action="<?=$URL_BASE?>/upload.php" class="dropzone">   
             <input type="hidden" name="pathinfo" value=".<?=$actual_link?>"/>
           </form>
@@ -101,7 +101,7 @@
                 <div class="col-sm-3 p-3 bg-dark">
                   <div class="card" style="width:250px">
                     <div class="card-body">
-                      <h4><b><?=$text[7]?></b></h4>
+                      <h4><?=$text[7]?></h4>
                     </div>
                     <div class="card-footer">
                       <a href="/public<?=$URL_BASE."/".$aux?>" class="btn btn-primary">
@@ -125,7 +125,7 @@
                   <div class="card" style="width:250px">
                     <!--img class="card-img-top" src="<?=$file?>" alt="<?=$file?>" style="width:100%"-->
                     <div class="card-body">
-                      <h4><b><?=$file?></b></h4> 
+                      <h4><?=$file?></h4> 
                     </div>
                     <div class="card-footer">
                       <a href="/public<?=$url."/".$file?>" class="btn btn-primary">
@@ -150,7 +150,7 @@
                   <div class="card" style="width:250px">
                     <img class="card-img-top" src="<?=$url."/".$file?>" alt="<?=$file?>" style="width:100%" id="<?=$file?>">
                     <div class="card-body">
-                      <h4><b><?=$file?></b></h4> 
+                      <h4><?=$file?></h4> 
                     </div>
                     <div class="card-footer">
                       <button id="copy-button"  class="btn btn-primary" onclick="copyURL('<?=$file?>')">
@@ -214,6 +214,26 @@
       //alert("URL da foto copiada com sucesso!");
     }
         
+    function FilterImage() {
+      var input, filter, img, cards, a, i, txtValue;
+      input = document.getElementById("search");
+      filter = input.value.toUpperCase();
+      //console.log(filter);
+      img = document.getElementById("listFiles");
+      cards = img.getElementsByClassName("col-sm-3");
+      //console.log(cards);
+      for (i = 0; i < cards.length; i++) {
+          a = cards[i].getElementsByTagName("h4")[0];
+        console.log(cards[i]);
+          txtValue = a.textContent || a.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              cards[i].style.display = "";
+          } else {
+              cards[i].style.display = "none";
+          }
+      }
+    } 
+                                               
   </script>
 </body>
 </html> 
