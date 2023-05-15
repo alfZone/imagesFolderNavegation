@@ -3,7 +3,7 @@
 /**
  * The objective of the repository is to provide HTML, PHP, and JavaScript code to manage a folder where images are stored..
  * @author António Lira Fernandes
- * @version 5.1
+ * @version 5.2
  * @updated 301-03-2023 21:50:00
  * https://github.com/alfZone/imagesFolderNavegation
  */
@@ -98,7 +98,7 @@
 
 <div class="container mt-3">
   <h2><?=$text[4]?> <?=$url?></h2>
-  <div class="row" id="listFiles>
+  <div class="row" id="listFiles">
     <div class="col-sm-3 p-3 bg-dark">
       <div class="card" style="width:250px">
         <div class="card-body">
