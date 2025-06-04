@@ -3,7 +3,7 @@
 /**
  * The objective of the repository is to provide HTML, PHP, and JavaScript code to manage a folder where images are stored..
  * @author António Lira Fernandes
- * @version 5.2
+ * @version 5.3
  * @updated 301-03-2023 21:50:00
  * https://github.com/alfZone/imagesFolderNavegation
  */
@@ -16,11 +16,11 @@
   //Text string and definitions
 
   //$URL_BASE="/images";
-  $URL_BASE="<Path in the website's URL>"; 
+  $URL_BASE="/templates/default/images//"; 
   // to see complete path use getcwd
   //echo getcwd();
   //$DIR_BASE="/home/esmonser/justicaepazviana.pt/images";
-  $DIR_BASE="<Full path to the folder in the file system>";
+  $DIR_BASE="/home/rede/public_html/templates/default/images";
   //$text=array("Imagens", "Gerir as Imagens", "Carregar Imagens", "Procurar", "Imagens na pasta: ", "Zona de upload", "Entrar", "Voltar");
   $text=array("Images", "Manager Images", "Load Images", "Search", "Images on folder: ", "Upload zone", "Go", "Go back");
   
@@ -29,7 +29,12 @@
   $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
   
   $actual_link=$st->after($URL_BASE, $actual_link);
-  $actual_link=str_replace("//", "/", $actual_link);
+  if ($actual_link == "") {
+      $actual_link = "/";
+  }else{
+    $actual_link=str_replace("//", "/", $actual_link);
+  }
+  
   //echo $actual_link;
 
  
